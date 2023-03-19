@@ -115,6 +115,10 @@ export default class SystemSetting {
         return await SystemSettingNative.getVolume(type)
     }
 
+    static async getStreamMaxVolume(type = 'music') {
+        return await SystemSettingNative.getStreamMaxVolume(type)
+    }
+
     static setVolume(val, config = {}) {
         if (typeof (config) === 'string') {
             console.log('setVolume(val, type) is deprecated since 1.2.2, use setVolume(val, config) instead')

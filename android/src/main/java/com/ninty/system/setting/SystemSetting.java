@@ -316,6 +316,12 @@ public class SystemSetting extends ReactContextBaseJavaModule implements Activit
         promise.resolve(getNormalizationVolume(type));
     }
 
+    @ReactMethod
+    public void getStreamMaxVolume(String streamType, Promise promise){
+        int volType = getVolType(streamType);
+        promise.resolve(am.getStreamMaxVolume(volType));
+    }
+
     private void checkAndSet(String name, int value, Promise promise) {
         boolean reject = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.System.canWrite(mContext)) {

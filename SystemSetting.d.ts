@@ -42,6 +42,12 @@ interface SystemSetting {
   saveBrightness: () => Promise<void>;
   restoreBrightness: () => number;
   getVolume: (type?: VolumeType) => Promise<number>;
+  /**
+   * Get number of native volume slider steps i.e. 15
+   * @param {type} volume stream type (defaul: music) 
+   * @returns 
+  */
+  getStreamMaxVolume: (type?: VolumeType) => Promise<number>;
   setVolume: (value: number, config?: VolumeConfig | VolumeType) => void;
   addVolumeListener: (
     callback: (volumeData: VolumeData) => void
